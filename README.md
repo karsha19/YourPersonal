@@ -39,6 +39,19 @@ streamlit run app.py
 
 The SQLite database (`expenses.db`) is created automatically on first run — no manual setup needed.
 
+## Deploy to Render
+
+1. Create a Render account at https://render.com.
+2. Connect your GitHub repository.
+3. Add a new **Web Service** and select the `main` branch.
+4. Use these settings:
+   - Environment: `Python`
+   - Build Command: `pip install -r requirements.txt`
+   - Start Command: `streamlit run app.py --server.port $PORT --server.headless true`
+5. Deploy and wait for Render to finish building.
+
+Your app is ready to run on Render with the existing `render.yaml` config.
+
 ## Notes
 
 - All database access goes through SQLAlchemy ORM (no raw SQL).
